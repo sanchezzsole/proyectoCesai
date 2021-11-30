@@ -15,7 +15,7 @@ public class Conexion {
         }
         return c;
     }
-    public static void main(String[]args) throws SQLException{
+    /*public static void main(String[]args) throws SQLException{
         Connection conexion = null;
         Conexion con = new Conexion(); //acá NO va nada dentro de los paréntesis xq la clase Conexion NO tiene constructor
         conexion = con.getConection();
@@ -30,5 +30,5 @@ public class Conexion {
             String apellido = rs.getString("apellido");
             System.out.println("\n Id: " + id + "\n nombre: " + nombre + "\n apellido: " + apellido); 
         } 
-    }
+    }*/
 }
