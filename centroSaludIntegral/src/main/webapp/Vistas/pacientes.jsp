@@ -19,12 +19,13 @@
         <h1>Lista de Pacientes</h1>
         <div class="container">
             <div class="row">
-                <a class="btn btn-primary w-25 m-3" href="PacientesController?accion=nuevo">Agregar Paciente</a>
+                <a class="btn btn-primary w-25 m-3" 
+                   href="PacientesController?accion=nuevo">Agregar Paciente</a>
                 <table class="table table-primary">
                     <thead>
                         <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
                         <th>Edad</th>
                         <th>Provincia</th>
                         <th>Email</th>
@@ -35,17 +36,17 @@
                     <tbody> 
                         <%
                             List<Pacientes> resultado=null;
-                            PacientesDAO paciente =new PacientesDAO();
+                            PacientesDAO paciente = new PacientesDAO();
                             resultado = paciente.listarPacientes();
                             
                             for(int a = 0; a < resultado.size(); a++){
-                                String ruta ="PacientessController?accion=modificar&id=" + resultado.get(a).getId();
+                                String ruta ="PacientesController?accion=modificar&id=" + resultado.get(a).getId();
                                 String rutaE ="PacientesController?accion=eliminar&id=" + resultado.get(a).getId();
                                 %>
                         <tr>
                             <td><%= resultado.get(a).getId()%></td>
-                            <td><%= resultado.get(a).getNombre()%></td>
-                            <td><%= resultado.get(a).getApellido()%></td>
+                            <td><%= resultado.get(a).getNombres()%></td>
+                            <td><%= resultado.get(a).getApellidos()%></td>
                             <td><%= resultado.get(a).getEdad()%></td>
                             <td><%= resultado.get(a).getProvincia()%></td>
                             <td><%= resultado.get(a).getEmail()%></td>

@@ -18,12 +18,12 @@
             <div class="row d-flex justify-content-center">
                 <form class="p-5 w-50" action="PacientesController?accion=insert" method="POST">
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre"/>
+                        <label for="nombres" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="nombres" name="nombres"/>
                     </div>
                     <div class="mb-3">
-                        <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido"/>
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos"/>
                     </div>
                     <div class="mb-3">
                         <label for="edad" class="form-label">Edad</label>

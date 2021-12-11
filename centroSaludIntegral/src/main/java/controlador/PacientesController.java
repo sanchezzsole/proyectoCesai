@@ -29,6 +29,19 @@ public class PacientesController extends HttpServlet {
                 dispatcher = request.getRequestDispatcher("Vistas/pacientes.jsp");        
             } else if(accion.equals("modificar")){
                 dispatcher = request.getRequestDispatcher("Vistas/modificar.jsp");
+            } else if(accion.equals("actualizar")){
+                int id = Integer.parseInt(request.getParameter("id"));
+                String nombres = request.getParameter("nombres");
+                String apellidos = request.getParameter("apellidos");
+                String edad = request.getParameter("edad");
+                int ed = Integer.parseInt(edad);
+                String provincia = request.getParameter("provincia");
+                String email = request.getParameter("email");
+                String telefono = request.getParameter("telefono");
+                int tl = Integer.parseInt(telefono);
+                Pacientes paciente = new Pacientes(id, nombres, apellidos, ed, provincia, email, tl);
+                pacientesDao.actualizarPaciente(paciente);
+                dispatcher = request.getRequestDispatcher("Vistas/pacientes.jsp");
             }
             dispatcher.forward(request, response);
     }

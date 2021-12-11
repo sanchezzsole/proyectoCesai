@@ -1,0 +1,4 @@
+modelo\Pacientes.class
+modelo\PacientesDAO.class
+config\Conexion.class
+controlador\PacientesController.class

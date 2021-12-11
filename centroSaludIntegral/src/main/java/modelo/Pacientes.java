@@ -2,8 +2,8 @@ package modelo;
 
 public class Pacientes {
     private int id;
-    private String nombre;
-    private String apellido;
+    private String nombres;
+    private String apellidos;
     private int edad;
     private String provincia;
     private String email;
@@ -11,17 +11,16 @@ public class Pacientes {
 
     //ME HACE CREAR ESTE CONSTRUCTOR, SINO ME DA ERROR..... Y YA ESTABA
     //EL CONSTRUCTOR ABAJO CREADO...
-     public Pacientes (int id, String nombre, String apellido, int edad, String provincia, String email, int telefono){
+     public Pacientes (int id, String nombres, String apellidos, int edad, String provincia, String email, int telefono){
         this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.edad = edad;
         this.provincia = provincia;
         this.email = email;
         this.telefono = telefono;
         
     }
-
     
     public int getId() {
         return id;
@@ -31,20 +30,20 @@ public class Pacientes {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public int getEdad() {

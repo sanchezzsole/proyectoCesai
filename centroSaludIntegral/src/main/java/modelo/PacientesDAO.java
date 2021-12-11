@@ -23,13 +23,13 @@ public class PacientesDAO {
             
             while(rs.next()){
                 int id = rs.getInt("id");
-                String nombre = rs.getString("nombres");
-                String apellido = rs.getString("apellidos");
+                String nombres = rs.getString("nombres");
+                String apellidos = rs.getString("apellidos");
                 int edad = rs.getInt("edad");
                 String provincia = rs.getString("provincia");
                 String email = rs.getString("email");
                 int telefono = rs.getInt("telefono");
-                Pacientes pacientes = new Pacientes (id, nombre, apellido, edad, provincia, email, telefono);
+                Pacientes pacientes = new Pacientes (id, nombres, apellidos, edad, provincia, email, telefono);
                 lista.add(pacientes);
             }
             return lista;
@@ -53,13 +53,13 @@ public class PacientesDAO {
             
             while(rs.next()){
                 int id = rs.getInt("id");
-                String nombre = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
+                String nombres = rs.getString("nombres");
+                String apellidos = rs.getString("apellidos");
                 int edad = rs.getInt("edad");
                 String provincia = rs.getString("provincia");
                 String email = rs.getString("email");
                 int telefono = rs.getInt("telefono");
-               paciente = new Pacientes(id, nombre, apellido, edad, provincia, email, telefono);
+               paciente = new Pacientes(id, nombres, apellidos, edad, provincia, email, telefono);
             } return paciente;
         }catch(SQLException e){
             System.out.println(e.toString());
@@ -70,11 +70,13 @@ public class PacientesDAO {
         public boolean insertarPaciente(Pacientes paciente){
             PreparedStatement ps;
             try{
-                 ps = conexion.prepareStatement("INSERT INTO registros (nombre, apellido, email, telefono) VALUES (?,?,?,?)");
-                 ps.setString(1, paciente.getNombre());
-                 ps.setString(2, paciente.getApellido());
-                 ps.setString(3, paciente.getEmail());
-                 ps.setInt(4, paciente.getTelefono());
+                 ps = conexion.prepareStatement("INSERT INTO registros (nombres, apellidos, edad, provincia, email, telefono) VALUES (?,?,?,?,?,?)");
+                 ps.setString(1, paciente.getNombres());
+                 ps.setString(2, paciente.getApellidos());
+                 ps.setInt(3, paciente.getEdad());
+                 ps.setString(4, paciente.getProvincia());
+                 ps.setString(5, paciente.getEmail());
+                 ps.setInt(6, paciente.getTelefono());
                  ps.execute();   
                  return true;
             }catch(SQLException e){
@@ -86,12 +88,14 @@ public class PacientesDAO {
         public boolean actualizarPaciente(Pacientes paciente){
             PreparedStatement ps;
             try{ 
-            ps = conexion.prepareStatement("UPDATE registros SET nombre=?, apellido=?, email=?, telefono=? WHERE id=?) VALUES (?,?,?,?)");
-                 ps.setString(1, paciente.getNombre());
-                 ps.setString(2, paciente.getApellido());
-                 ps.setString(3, paciente.getEmail());
-                 ps.setInt(4, paciente.getTelefono());
-                 ps.setInt(5, paciente.getId());
+            ps = conexion.prepareStatement("UPDATE registros SET nombres=?, apellidos=?, edad=?, provincia=?, email=?, telefono=? WHERE id=?) VALUES (?,?,?,?,?,?)");
+                 ps.setString(1, paciente.getNombres());
+                 ps.setString(2, paciente.getApellidos());
+                 ps.setInt(3, paciente.getEdad());
+                 ps.setString(4, paciente.getProvincia());
+                 ps.setString(5, paciente.getEmail());
+                 ps.setInt(6, paciente.getTelefono());
+                 ps.setInt(7, paciente.getId());
                  ps.execute();   
                  return true;
             }catch(SQLException e){
