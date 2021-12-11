@@ -4,6 +4,9 @@
     Author     : Soledad
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="modelo.PacientesDAO"%>
+<%@page import="modelo.Pacientes"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +33,29 @@
                         <th>Eliminar</th>
                     </thead>
                     <tbody>
-                        
+                        <%
+                         List<Pacientes> resultado=null;
+                         PacientesDAO paciente = new PacientesDAO();
+                         resultado = paciente.listarPacientes();
+                         
+                         for(int a = 0; a < resultado.size(); a++){
+                             String ruta ="PacientesController?accion=modificar&id" + resultado.get(a).getId();
+                             String rutaE ="PacientesController?accion=eliminar&id" + resultado.get(a).getId();
+                         
+                         %>
+                        <tr>
+                            <td><%= resultado.get(a).getId()%></td>
+                            <td><%= resultado.get(a).getNombre()%></td>
+                            <td><%= resultado.get(a).getApellido()%></td>
+                            <td><%= resultado.get(a).getEmail()%></td>
+                            <td><%= resultado.get(a).getTelefono()%></td>
+                            <td><a class="text-success" href=<%= ruta%>>X</a></td>
+                            <td><a class="text-danger" href=<%= rutaE%>>X</a></td>
+                        </tr>
+                        <%
+                            }
+                    %>
+
                     </tbody>
                 </table>
             </div>

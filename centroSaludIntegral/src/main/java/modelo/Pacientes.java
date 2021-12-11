@@ -9,6 +9,20 @@ public class Pacientes {
     private String email;
     private int telefono;
 
+    //ME HACE CREAR ESTE CONSTRUCTOR, SINO ME DA ERROR..... Y YA ESTABA
+    //EL CONSTRUCTOR ABAJO CREADO...
+     public Pacientes (int id, String nombre, String apellido, int edad, String provincia, String email, int telefono){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.provincia = provincia;
+        this.email = email;
+        this.telefono = telefono;
+        
+    }
+
+    
     public int getId() {
         return id;
     }
@@ -65,14 +79,5 @@ public class Pacientes {
         this.telefono = telefono;
     }
     
-    public Pacientes (int id, String nombre, String apellido, int edad, String provincia, String email, int telefono){
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.provincia = provincia;
-        this.email = email;
-        this.telefono = telefono;
-        
-    }
+
 }
